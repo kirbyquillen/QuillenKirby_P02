@@ -8,13 +8,14 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] Button _play;
     [SerializeField] Button _exit;
+
     public void PlayGame()
     {
-        SceneManager.LoadScene("Gamescene");
+        SceneManager.LoadScene("StateMachine");
     }
     public void QuitGame()
     {
         Debug.Log("QUIT");
-        SceneManager.LoadScene("Quit");
+        Application.Quit();
     }
 }

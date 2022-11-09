@@ -23,8 +23,6 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             PressedRight?.Invoke();
-       
-        
         }
     }
 

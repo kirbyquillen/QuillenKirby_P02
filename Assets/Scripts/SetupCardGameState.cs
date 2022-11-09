@@ -11,9 +11,7 @@ public class SetupCardGameState : CardGameState
 
     public override void Enter()
     {
-        Debug.Log("Setup: ... Entering");
-        Debug.Log("Creating " + _numberOfPlayers + " players.");
-        Debug.Log("Creating deck with " + _startingCardNumber + " cards.");
+        Debug.Log("Setup: You have been challenged!");
         _activated = false;
     }
 
@@ -29,6 +27,6 @@ public class SetupCardGameState : CardGameState
     public override void Exit()
     {
         _activated = false;
-        Debug.Log("Setup: Exiting...");
+        Debug.Log("Setup: The battle begins...");
     }
 }
