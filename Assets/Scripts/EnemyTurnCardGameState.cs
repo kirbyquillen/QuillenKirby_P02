@@ -17,7 +17,7 @@ public class EnemyTurnCardGameState : CardGameState
     public int _health;
     public int _magic;
 
-    bool _bideInProgress;
+    public bool _bideInProgress;
     public bool _defendActive = true;
 
     private void Start()

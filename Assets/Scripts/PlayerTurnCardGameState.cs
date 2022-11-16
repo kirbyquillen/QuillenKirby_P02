@@ -64,12 +64,14 @@ public class PlayerTurnCardGameState : CardGameState
         _enemy._health -= 2;
         Debug.Log("You attacked!");
         Debug.Log("Enemy health: " + _enemy._health);
+        StateMachine.ChangeState<EnemyTurnCardGameState>();
     }
 
     public void Defend()
     {
         _defendActive = true;
         Debug.Log("You are defending!");
+        StateMachine.ChangeState<EnemyTurnCardGameState>();
     }
 
     public void Heal()
@@ -84,6 +86,7 @@ public class PlayerTurnCardGameState : CardGameState
         {
             Debug.Log("Uh oh! You didn't have enough mana, and your spell failed...");
         }
+        StateMachine.ChangeState<EnemyTurnCardGameState>();
     }
 
     public void CastEffect()
@@ -101,7 +104,10 @@ public class PlayerTurnCardGameState : CardGameState
             else if (_bideActive == true && _dmgReduceActive == false && _effect == 0)
             {
                 _bideActive = false;
+                _enemy._biding.gameObject.SetActive(false);
                 Debug.Log("... Disable bide! Your enemy can no longer bide.");
+                if (_enemy._bideInProgress == true)
+                    Debug.Log("Enemy bide failed!");
                 _magic -= 5;
                 _effect = 1;
             }
@@ -117,5 +123,6 @@ public class PlayerTurnCardGameState : CardGameState
         {
             Debug.Log("Uh oh! You didn't have enough mana, and your spell failed...");
         }
+        StateMachine.ChangeState<EnemyTurnCardGameState>();
     }
 }
