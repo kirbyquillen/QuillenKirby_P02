@@ -38,7 +38,7 @@ public class InputController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PressedCancel?.Invoke();
+            Application.Quit();
         }
     }
 
