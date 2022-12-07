@@ -9,6 +9,7 @@ public class PlayerTurnCardGameState : CardGameState
     [SerializeField] public Text _winState = null;
     [SerializeField] Text _loseState = null;
     [SerializeField] public Canvas _playerMenu = null;
+    [SerializeField] GameObject _enemyArt;
     public EnemyTurnCardGameState _enemy;
     public int _health;
     public int _maxHealth = 10;
