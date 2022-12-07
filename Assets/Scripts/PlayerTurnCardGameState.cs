@@ -23,6 +23,8 @@ public class PlayerTurnCardGameState : CardGameState
     public bool _dmgReduceActive = false;
     public bool _enemyDefendEnabled = true;
 
+    [SerializeField] AudioSource lose;
+
     private void Start()
     {
         _winState.gameObject.SetActive(false);
@@ -48,12 +50,14 @@ public class PlayerTurnCardGameState : CardGameState
             StateMachine.Input.PressedConfirm += OnPressedConfirm;
         }
         else
+        {
+            lose.Play();
             _loseState.gameObject.SetActive(true);
+        }
     }
 
     public override void Exit()
     {
-        _playerTurnTextUI.gameObject.SetActive(false);
         _playerMenu.gameObject.SetActive(false);
         StateMachine.Input.PressedConfirm -= OnPressedConfirm;
 
